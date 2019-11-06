@@ -1,13 +1,9 @@
-public class LogNListaObserver extends ListaObserver {
-
-    // Utils
-    public static long log2(long x) {
-        return (long) (Math.log(x) / Math.log(2));
-    }
+public class LogNListaObserver extends ListaTamObserver {
+   
 
     @Override
     public long transformarValor(long valor) {
-        return log2(valor);
+        return Util.log2(valor);
 
     }
 

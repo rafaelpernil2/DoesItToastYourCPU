@@ -24,8 +24,6 @@ public class AlgoritmoThread implements Runnable {
         t.parar();
 
         long tPasado = t.tiempoPasado();
-
-        System.out.println("Ha terminado la ejecucion con tamaño " + n + " en " + tPasado / 1e9 + " s");
         stats.addTiempo(tPasado);
     }
 

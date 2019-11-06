@@ -1,8 +1,8 @@
-public class NFListaObserver extends ListaObserver {
+public class NFListaObserver extends ListaTamObserver {
 
     @Override
     public long transformarValor(long valor) {
-        return Long.MAX_VALUE;
+        return Util.factorial(valor);
 
     }
 

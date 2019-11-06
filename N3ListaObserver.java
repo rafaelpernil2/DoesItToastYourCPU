@@ -1,4 +1,4 @@
-public class N3ListaObserver extends ListaObserver {
+public class N3ListaObserver extends ListaTamObserver {
 
     @Override
     public long transformarValor(long valor) {

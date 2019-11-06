@@ -4,13 +4,13 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
-public class RazonObserver implements Observer {
+public class ListaRazonObserver implements Observer {
 
     private ListaTamObserver listaObs;
     private List<Long> listaRazones;
     private int indice;
 
-    public RazonObserver(ListaTamObserver lista) {
+    public ListaRazonObserver(ListaTamObserver lista) {
         this.listaObs = lista;
         this.indice = 0;
         this.listaRazones = new ArrayList<>();
@@ -22,18 +22,13 @@ public class RazonObserver implements Observer {
         if (arg instanceof Map<?, ?>) {
             Map<?, ?> map = (Map<?, ?>) arg;
 
-            if (map.containsKey("Media")) {
-                Long media = (Long) map.get("Media");
+            if (map.containsKey("Stat")) {
+                Long stat = (Long) map.get("Stat");
                 List<Long> listaRazones = getListaRazones();
-                listaRazones.add(media / listaObs.getLista().get(indice));
+                listaRazones.add(stat / listaObs.getLista().get(indice));
                 setListaRazones(listaRazones);
                 indice++;
             }
-
-
-        } else if (arg instanceof List<?>) {
-            System.out.println("ENTRA AQUI");
-            setListaRazones((List<Long>) arg);
         }
 
     }

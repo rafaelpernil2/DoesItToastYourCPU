@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,12 +21,25 @@ public class ExecutionStatsObservable extends Observable {
     public void calcularMedia() {
         synchronized (listaTiemposLock) {
             synchronized (sumLock) {
-                long media = sum / listaTiempos.size();
-
+                long media = getMedia();
                 Map<String, Object> datos = new HashMap<>();
-                datos.put("Media", new Long(media));
+                datos.put("Stat", new Long(media));
                 setChanged();
                 notifyObservers(datos);
+            }
+        }
+    }
+
+    public void calcularMinimo() {
+        synchronized (listaTiemposLock) {
+            synchronized (sumLock) {
+                if (!listaTiempos.isEmpty()) {
+                    long min = getMinimo();
+                    Map<String, Object> datos = new HashMap<>();
+                    datos.put("Stat", new Long(min));
+                    setChanged();
+                    notifyObservers(datos);
+                }
             }
         }
     }
@@ -54,4 +68,15 @@ public class ExecutionStatsObservable extends Observable {
         }
     }
 
+    public long getMinimo() {
+        return Collections.min(listaTiempos);
+    }
+
+    public long getMedia() {
+        long media = 0;
+        if (listaTiempos.size() > 0) {
+            media = sum / listaTiempos.size();
+        }
+        return media;
+    }
 }
