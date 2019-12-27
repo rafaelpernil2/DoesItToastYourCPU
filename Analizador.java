@@ -123,11 +123,11 @@ public class Analizador {
 
 				/**
 				 * Nota importante:
-				 * 
+				 *
 				 * start() y join() se ejecutan secuencial mente porque la clase Algoritmo es
 				 * synchronized y no se miden bien los tiempos. El codigo esta listo para
 				 * mediciones thread-safe concurrentes
-				 * 
+				 *
 				 */
 				hilos[j].start();
 

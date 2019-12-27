@@ -38,17 +38,9 @@ public abstract class ListaTamObserver implements Observer {
                 // Modificar valor
                 long auxElem = transformarValor(aux);
                 auxList.add(new Long(auxElem));
-                // setChanged();
-                // notifyObservers(auxElem);
-
-                // Map<String, Object> datos = new HashMap<>();
-                // datos.put("TamEntrada", new Long(auxElem));
-                // setChanged();
-                // notifyObservers(datos);
 
                 // Reasignar lista
                 setLista(auxList);
-                // System.out.println("INNER" + getLista());
             }
 
         }

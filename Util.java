@@ -6,13 +6,11 @@ public class Util {
     public static long varianza(List<Long> lista) {
         long acc = 0;
         long media = media(lista);
-        // System.out.println(media);
 
         Iterator<Long> it = lista.iterator();
 
         while (it.hasNext()) {
             long num = (long) it.next();
-            // System.out.println( (long) Math.pow(Math.abs(num - media), 2));
             acc += (long) Math.pow(Math.abs(num - media), 2);
         }
 
